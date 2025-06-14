@@ -34,7 +34,7 @@ const validateInput = (req, res, next) => {
 };
 
 router.post("/generate", validateInput, async (req, res) => {
-  try {
+  try {2
     const userData = req.body;
     console.log('This is the user data that we are getting from the api: ' + JSON.stringify(userData));
 
@@ -43,7 +43,7 @@ router.post("/generate", validateInput, async (req, res) => {
     const resumeContent = await groqService.generateResumeContent(userData);
 
     // Step 2: Read LaTeX template
-    const templatePath = process.env.LATEX_TEMPLATE_PATH || "./templates/1.tex";
+    const templatePath = "./templates/4.tex";
     let latexTemplate;
     try {
       latexTemplate = await readFile(templatePath, "utf8");
@@ -64,7 +64,7 @@ router.post("/generate", validateInput, async (req, res) => {
 
   } catch (error) {
     console.error("Error generating resume:", error);
-    res.status(500).json({ message: "Failed to generate resume" });
+    res.status(500).json({ message: "Failed to generate resume" ,reason:error });
   }
 });
 
