@@ -32,9 +32,9 @@ const extractLatexFromResponse = (rawContent) => {
   if (!latexContent.includes("\\end{document}")) {
     throw new Error("Extracted content is missing \\end{document}");
   }
-  if (!latexContent.includes("\\resumeSubheading") && latexContent.includes("Education")) {
-    throw new Error("Extracted content is missing required \\resumeSubheading command for sections");
-  }
+  // if (!latexContent.includes("\\resumeSubheading") && latexContent.includes("Education")) {
+  //   throw new Error("Extracted content is missing required \\resumeSubheading command for sections");
+  // }
 
   return latexContent;
 };
