@@ -1,5 +1,4 @@
 const express = require('express');
-const { insertTemplates, getAllTemplates } = require('../controllers/resumecontroller');
 const router = express.Router();
 const groqService = require("../services/groqService");
 const geminiService = require("../services/geminiService");
@@ -75,7 +74,6 @@ router.get('/insert-templates', (req, res) => {
   res.send('Templates inserted!');
 });
 
-// Route to fetch all resume templates
-router.get('/resume-templates', getAllTemplates);
+
 
 module.exports = router;
